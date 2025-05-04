@@ -1,1 +1,26 @@
-.idea
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+
+# Logs, temp files
+*.log
+*.tmp
+
+# === PyCharm ===
+.idea/
+!.idea/modules.xml
+!.idea/*.iml
+!.idea/vcs.xml
+!.idea/runConfigurations/
+
+.idea/workspace.xml
+.idea/dictionaries/
+.idea/tasks.xml
+.idea/shelf/
+
+# === Others ===
+.DS_Store
