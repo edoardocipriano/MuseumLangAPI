@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException
 from pydantic import BaseModel, Field
 import logging
 import time
@@ -76,6 +76,11 @@ async def predict_language(input_text: TextInput) -> PredictionOutput:
 
     # Get the text from the input
     text = input_text.text
+
+    # Check if the text is empty
+    if not text.strip():
+        logger.warning("Empty text provided for language prediction")
+        raise HTTPException(status_code=400, detail="Text cannot be empty")
 
     # Make the prediction
     logger.info("Making language prediction")
